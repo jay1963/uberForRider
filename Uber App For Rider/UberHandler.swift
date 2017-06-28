@@ -98,7 +98,8 @@ class UberHandler {
     }
     
     func updateRidersLocation(lat:Double, long:Double){
-        DBProvider.Instance.requestRef.child(rider_id).updateChildValues([Constants.LATITUDE:lat,Constants.LONGITUDE:long]);
+        print("lat \(lat)");
+        DBProvider.Instance.requestRef.child(rider_id).updateChildValues([Constants.LATITUDE:lat, Constants.LONGITUDE:long]);
     }
     
 }

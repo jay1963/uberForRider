@@ -100,8 +100,9 @@ class RiderVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, U
     @IBAction func callUber(_ sender: AnyObject) {
         if userLocation != nil {
             if canCallUber {
-                UberHandler.Instance.requestUber(latitude:Double((userLocation?.latitude)!), longitude:Double((userLocation?.longitude)!));
                 timer = Timer.scheduledTimer(timeInterval: TimeInterval(10), target: self, selector: #selector(RiderVC.updateRidersLocation), userInfo: nil, repeats: true);
+                UberHandler.Instance.requestUber(latitude:Double((userLocation?.latitude)!), longitude:Double((userLocation?.longitude)!));
+                canCallUber = false;
             }else{
                 riderCancelReuqest =  true;
                 UberHandler.Instance.cancleUber();
